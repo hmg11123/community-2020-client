@@ -1,0 +1,69 @@
+{
+  "name": "community-2020-client",
+  "version": "1.0.0",
+  "description": "Community Web Application With Node.js, Express, React, Material ...",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyj11123/community-2020-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyj11123/community-2020-client/issues"
+  },
+  "homepage": "https://github.com/hyj11123/community-2020-client#readme",
+  "dependencies": {
+    "@4leaf.ysh/use-title": "^1.0.4",
+    "@date-io/date-fns": "^2.6.2",
+    "@material-ui/core": "^4.9.13",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/pickers": "^3.2.10",
+    "animate.css": "^4.1.0",
+    "axios": "^0.18.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.2",
+    "date-fns": "^2.14.0",
+    "dotenv-webpack": "^1.7.0",
+    "draft-js": "^0.11.6",
+    "draftjs-to-html": "^0.9.1",
+    "file-loader": "^6.0.0",
+    "firebase-tools": "^8.1.1",
+    "html-to-draftjs": "^1.5.0",
+    "http-proxy-middleware": "^1.0.3",
+    "query-string": "^6.13.1",
+    "react": "^16.13.1",
+    "react-animate-on-scroll": "^2.1.5",
+    "react-app-polyfill": "^1.0.6",
+    "react-awesome-modal": "^2.0.5",
+    "react-confirm-alert": "^2.6.1",
+    "react-cookie": "^4.0.3",
+    "react-dom": "^16.13.1",
+    "react-draft-wysiwyg": "^1.14.5",
+    "react-facebook-share-link": "^1.0.4",
+    "react-html5-camera-photo": "^1.5.4",
+    "react-magnifier": "^3.0.4",
+    "react-resize-detector": "^5.0.6",
+    "react-reveal": "^1.2.2",
+    "react-router-dom": "^5.1.2",
+    "react-scroll": "^1.7.16",
+    "react-slick": "^0.25.2",
+    "react-twitter-share-link": "^1.2.1",
+    "slick-carousel": "^1.8.1",
+    "style-loader": "^1.1.4",
+    "styled-components": "^5.1.1",
+    "url-loader": "^4.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "copy-webpack-plugin": "^5.1.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
