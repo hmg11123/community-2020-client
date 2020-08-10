@@ -1,19 +1,20 @@
 import React from "react";
 import Slide from 'react-reveal/Slide';
 import Rotate from 'react-reveal/Rotate';
+import { Link } from "react-router-dom";
 
 const menus = [
     {
         menuName: "FREE BOARD",
-        link: ""
+        link: "/freeboard"
     },
     {
         menuName: "DOCUMENTS BOARD",
-        link: ""
+        link: "/docsboard"
     },
     {
         menuName: "GALLARY",
-        link: ""
+        link: "/gallaryboard"
     }
 ]
 
@@ -26,15 +27,15 @@ class MM00_V extends React.Component {
             menus: [
                 {
                     menuName: "FREE BOARD",
-                    link: ""
+                    link: "/freeboard"
                 },
                 {
                     menuName: "DOCUMENTS BOARD",
-                    link: ""
+                    link: "/docsboard"
                 },
                 {
                     menuName: "GALLARY",
-                    link: ""
+                    link: "/gallaryboard"
                 },
             ],
         };
@@ -49,7 +50,10 @@ class MM00_V extends React.Component {
                     {menus.map((menu, idx) => {
                         return (
                             <Rotate bottom left delay={idx * 500} key={idx}>
-                                <div className="MM00_V__menuBox__menu">{menu.menuName}</div>
+                                <Link to={menu.link}>
+
+                                    <div className="MM00_V__menuBox__menu">{menu.menuName}</div>
+                                </Link>
                             </Rotate>
                         )
                     })}
