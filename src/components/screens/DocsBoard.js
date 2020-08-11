@@ -1,11 +1,16 @@
 import React from "react";
-import { WholeWrapper, Wrapper, Column } from "../commonComponents";
+import { WholeWrapper, Wrapper, Column, Title, TitleWrapper, SearchInput } from "../commonComponents";
 
 class DocsBoard extends React.Component {
     render() {
         return (
             <WholeWrapper>
-
+                <TitleWrapper>
+                    <Title>DocsBoard</Title>
+                </TitleWrapper>
+                <TitleWrapper>
+                    <SearchInput></SearchInput>
+                </TitleWrapper>
                 <Wrapper width="960px" height="25px" direction="row">
                     <Column width={"5%"} isHead={true}>번호</Column>
                     <Column width={"40%"} isHead={true}>제목</Column>
