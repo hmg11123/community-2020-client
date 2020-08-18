@@ -78,7 +78,7 @@ export const Title = styled.h2`
 export const TitleWrapper = styled.div`
     width: ${(props) => props.width || `100%`};
     display: flex;
-    flex-direction: column;
+    flex-direction: ${(props) => props.direction || `column`};
     align-items: ${(props) => props.align || `center`};
     justify-content: center;
     margin: 50px 0px;

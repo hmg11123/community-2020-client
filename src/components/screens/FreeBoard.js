@@ -1,5 +1,7 @@
 import React from "react";
 import { WholeWrapper, Wrapper, Column, Title, TitleWrapper, SearchInput, C_Btn } from "../commonComponents";
+import SearchIcon from '@material-ui/icons/Search';
+import { Link } from "react-router-dom";
 
 class FreeBoard extends React.Component {
     render() {
@@ -8,11 +10,18 @@ class FreeBoard extends React.Component {
                 <TitleWrapper>
                     <Title>FreeBoard</Title>
                 </TitleWrapper>
-                <TitleWrapper>
-                    <SearchInput></SearchInput>
+
+                <TitleWrapper direction={`row`}>
+                    <SearchInput />
+                    <SearchIcon />
                 </TitleWrapper>
+
+
+
                 <TitleWrapper width={"960px"} align={"flex-end"}>
-                    <C_Btn>글쓰기</C_Btn>
+                    <Link to={`/write/free`}>
+                        <C_Btn>글쓰기</C_Btn>
+                    </Link>
                 </TitleWrapper>
                 <Wrapper width="960px" height="25px" direction="row">
                     <Column width={"5%"} isHead={true}>번호</Column>
@@ -38,7 +47,7 @@ class FreeBoard extends React.Component {
                 </Wrapper>
                 <Wrapper width="960px" height="25px" direction="row" isData={true}>
                     <Column width={"5%"} isHead={false}>3</Column>
-                    <Column width={"40%"} isHead={false}>ㅈㄹ</Column>
+                    <Column width={"40%"} isHead={false}>iu</Column>
                     <Column width={"15%"} isHead={false}>??</Column>
                     <Column width={"20%"} isHead={false}>1930년 10월 14일</Column>
                     <Column width={"20%"} isHead={false}>672</Column>
