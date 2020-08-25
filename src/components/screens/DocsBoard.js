@@ -1,9 +1,30 @@
 import React from "react";
 import { WholeWrapper, Wrapper, Column, Title, TitleWrapper, SearchInput, C_Btn } from "../commonComponents";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class DocsBoard extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            datum: null
+        }
+    }
+
+    componentDidMount = async () => {
+        try {
+            await axios.post("/api/getDocsboardData").then(
+                (response) => this.setState({
+                    datum: response.data
+                })
+            )
+        } catch (e) { }
+    }
+
     render() {
+
+        const { datum } = this.state;
         return (
             <WholeWrapper>
                 <TitleWrapper>
@@ -25,34 +46,29 @@ class DocsBoard extends React.Component {
                     <Column width={"20%"} isHead={true}>조회수</Column>
                 </Wrapper>
                 {/* ----- DATA AREA START ----- */}
-                <Wrapper width="960px" height="25px" direction="row" isData={true}>
-                    <Column width={"5%"} isHead={false}>1</Column>
-                    <Column width={"40%"} isHead={false}>ㅎㅇ</Column>
-                    <Column width={"15%"} isHead={false}>??</Column>
-                    <Column width={"20%"} isHead={false}>1930년 10월 1일</Column>
-                    <Column width={"20%"} isHead={false}>0</Column>
-                </Wrapper>
-                <Wrapper width="960px" height="25px" direction="row" isData={true}>
-                    <Column width={"5%"} isHead={false}>2</Column>
-                    <Column width={"40%"} isHead={false}>ㅂ2</Column>
-                    <Column width={"15%"} isHead={false}>??</Column>
-                    <Column width={"20%"} isHead={false}>1930년 10월 2일</Column>
-                    <Column width={"20%"} isHead={false}>1234</Column>
-                </Wrapper>
-                <Wrapper width="960px" height="25px" direction="row" isData={true}>
-                    <Column width={"5%"} isHead={false}>3</Column>
-                    <Column width={"40%"} isHead={false}>ㅈㄹ</Column>
-                    <Column width={"15%"} isHead={false}>??</Column>
-                    <Column width={"20%"} isHead={false}>1930년 10월 14일</Column>
-                    <Column width={"20%"} isHead={false}>672</Column>
-                </Wrapper>
-                <Wrapper width="960px" height="25px" direction="row" isData={true}>
-                    <Column width={"5%"} isHead={false}>4</Column>
-                    <Column width={"40%"} isHead={false}>Zz</Column>
-                    <Column width={"15%"} isHead={false}>??</Column>
-                    <Column width={"20%"} isHead={false}>1930년 10월 19일</Column>
-                    <Column width={"20%"} isHead={false}>29</Column>
-                </Wrapper>
+                {datum ? (
+                    datum.map((data, idx) => {
+                        return (
+                            <Wrapper key={data.refKey} width="960px" height="25px" direction="row" isData={true}>
+                                <Column width={"5%"} isHead={false}>
+                                    {idx + 1}
+                                </Column>
+                                <Column width={"40%"} isHead={false}>
+                                    {data.title}
+                                </Column>
+                                <Column width={"15%"} isHead={false}>
+                                    {data.author}
+                                </Column>
+                                <Column width={"20%"} isHead={false}>
+                                    {data.registDate}
+                                </Column>
+                                <Column width={"20%"} isHead={false}>
+                                    {data.hit}
+                                </Column>
+                            </Wrapper>
+                        )
+                    })
+                ) : <div>Loading...</div>}
 
             </WholeWrapper>
         )
