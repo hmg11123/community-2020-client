@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { C_Btn, D_Btn } from "../commonComponents";
+import axios from "axios";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -74,7 +75,7 @@ class Write extends React.Component {
         );
     }
 
-    _writeHandler = () => {
+    _writeHandler = async () => {
         const { title, author, description } = this.state;
         if (!title || title.trim() === "") {
             alert("제목을 입력해주세요.");
@@ -91,6 +92,7 @@ class Write extends React.Component {
         if (!description || description.trim() === "") {
             alert("내용을 입력해주세요.");
 
+
             return;
         }
 
@@ -100,6 +102,17 @@ class Write extends React.Component {
             description: description,
             type: this.props.match.params.boardType,
         }
+
+        await axios.post("/api/writeBoard", {
+            params: { inputData }
+        }).then((response) => {
+            if (response.data === 0) {
+                alert("등록 실패!!");
+            } else {
+                alert("계시글 등록 완료");
+                this.props.history.push(`/${this.props.match.params.boardType}board`)
+            }
+        });
 
         console.log(inputData)
     }
